@@ -16,7 +16,7 @@ public class LivroService {
         this.livroRepository = livroRepository;
     }
 
-    public List<Livro> ListarLivros(){
+    public List<Livro> listarLivros(){
         return livroRepository.findAll();
     }
 
