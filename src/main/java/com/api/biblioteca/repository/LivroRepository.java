@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface LivroRepository extends MongoRepository<Livro, String> {
-
+    //adicionando query de buscar por nota
     @Query("{'nota' : { $gt: ?0}}")
     List<Livro> buscarPorNotaMaiorQue(Integer nota);
 }
