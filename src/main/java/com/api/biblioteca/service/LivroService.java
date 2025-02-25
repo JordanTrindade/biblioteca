@@ -20,7 +20,7 @@ public class LivroService {
         return livroRepository.findAll();
     }
 
-    public Livro buscaLivroPorId(Integer id){
+    public Livro buscaLivroPorId(String id){
         //tratar erro
         return livroRepository.findById(id).orElseThrow(NotFoundException::new);
     }
@@ -30,7 +30,7 @@ public class LivroService {
     }
 
 
-    public void deletarLivro(Integer id){
+    public void deletarLivro(String id){
          livroRepository.deleteById(id);
     }
 }
