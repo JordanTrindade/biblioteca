@@ -41,4 +41,10 @@ public class LivroController {
         livroService.deletarLivro(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/nota/{nota}")
+    public ResponseEntity<List<Livro>> buscarLivroPorNota(@PathVariable Integer nota) {
+        List<Livro> livros = livroService.livrosComNotaMaiorQue(nota);
+        return ResponseEntity.status(HttpStatus.OK).body(livros);
+    }
 }

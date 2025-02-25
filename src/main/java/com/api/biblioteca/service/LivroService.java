@@ -33,4 +33,9 @@ public class LivroService {
     public void deletarLivro(String id){
          livroRepository.deleteById(id);
     }
+
+    public List<Livro> livrosComNotaMaiorQue(Integer nota){
+        return livroRepository.buscarPorNotaMaiorQue(nota);
+    }
+
 }
