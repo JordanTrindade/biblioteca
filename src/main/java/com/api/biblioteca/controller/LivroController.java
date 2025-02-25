@@ -4,9 +4,7 @@ import com.api.biblioteca.domain.Livro;
 import com.api.biblioteca.service.LivroService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +24,21 @@ public class LivroController {
         return ResponseEntity.status(HttpStatus.OK).body(livros);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Livro> buscarLivroPorId(@PathVariable String id) {
+        Livro livro = livroService.buscaLivroPorId(id);
+        return ResponseEntity.status(HttpStatus.OK).body(livro);
+    }
+
+    @PostMapping
+    public ResponseEntity<Livro> salvarLivro(@RequestBody Livro livro) {
+        Livro livroSalvo = livroService.salvarLivro(livro);
+        return new ResponseEntity<>(livroSalvo, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletarLivro(@PathVariable String id) {
+        livroService.deletarLivro(id);
+        return ResponseEntity.noContent().build();
+    }
 }
