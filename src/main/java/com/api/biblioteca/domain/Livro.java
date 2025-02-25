@@ -6,20 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "Livros")
 public class Livro {
     @Id
-    private Integer id;
+    private String id;
 
     private String titulo;
     private String autor;
     private Integer anoPublicacao;
     private Integer nota;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getTitulo() {
         return titulo;
